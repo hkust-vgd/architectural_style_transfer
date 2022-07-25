@@ -32,7 +32,7 @@ Evaluation set used in the paper: [Download Link](https://hkustconnect-my.sharep
 If you want to get evaluation images in original high resolution with source information, please download data here: [Download Link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/ERZUW4-GmPtNm3C2OacU_Y8BAVrMWah3cW5kJwvkvbbGKw?e=ZcnqgD) (2.2GB).
 
 ## Citation
-If you find our data or work useful in your research, please consider citing: 
+If you find our work or data useful in your research, please consider citing: 
 ```bibtex
 @inproceedings{chen2022timeofday,
   title={Time-of-Day Neural Style Transfer for Architectural Photographs},
