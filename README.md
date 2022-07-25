@@ -18,7 +18,7 @@ Architectural photography is a genre of photography that focuses on capturing a 
 Source code will be released soon.
 
 ## Dataset
-The Architectural Style Transfer dataset is released for non-commercial use only.
+The Time-lapse Architectural Style Transfer dataset is released for non-commercial use only.
 
 - **Training set:**
 Training set will be released soon.
