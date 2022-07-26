@@ -1,7 +1,7 @@
 # Time-of-Day Neural Style Transfer for Architectural Photographs
 
 
-<!-- <a href="https://chenyingshu.github.io/time_of_day/"><img src="https://img.shields.io/badge/WEBSITE-Visit%20project%20page-blue?style=for-the-badge"></a> -->
+<a href="https://chenyingshu.github.io/time_of_day/"><img src="https://img.shields.io/badge/WEBSITE-Visit%20project%20page-blue?style=for-the-badge"></a>
 <!-- <a href=""><img src="https://img.shields.io/badge/arxiv-2112.00719-red?style=for-the-badge"></a> -->
 
 [Yingshu Chen]()<sup>1</sup>,
