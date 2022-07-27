@@ -17,6 +17,45 @@ Architectural photography is a genre of photography that focuses on capturing a 
 ## Get Started
 Source code will be released soon.
 
+### Testing
+
+#### Single style transfer
+1. Download pretrained models (trained with 256x256 images): [TBD]().
+2. Prepare a daytime image and a target style image (either in any resolution).
+3. Prepare segmentation maps (white for foreground, black for background) for both images.
+4. Set up testing configurations, e.g., 512x resolution. Mutiple of $2^5$ is recommended.
+5. Run testing script:
+```
+TBD
+```
+
+#### Style interpolation
+1. Download pretrained models (trained with 256x256 images): [TBD]().
+2. Prepare a daytime image and two target style images of same class (each in any resolution).
+3. Prepare segmentation maps (white for foreground, black for background) for all images.
+4. Set up testing configurations, e.g., 512x resolution. Mutiple of $2^5$ is recommended.
+5. Run testing script:
+```
+TBD
+```
+
+### Data Segmentation Processing
+#### Manual labeling
+You can manually label sky as background, remaining as foreground.
+
+#### Automatic labeling
+We used pretrained model (TODO) to label sky background for training and evaluation data.
+Please access official [repository](TODO) for details.
+
+### Training
+Training is tested in NVIDIA GeForce RTX 2080 Ti with 11GB memory with one single GPU under 256x256 resolution,
+and in NVIDIA GeForce RTX 3090 Ti with 24GB memory with one single GPU under 512x512 resolution.
+
+1. Download training data in [Dataset](#dataset).
+2. Select source data and target style data for training, e.g., `day` and `golden`.
+3. Configure training parameters.
+4.
+
 ## Dataset
 The Time-lapse Architectural Style Transfer dataset is released for non-commercial use only.
 
@@ -29,6 +68,10 @@ The evaluation set contains 1,003 images in four time styles. <br>
 Evaluation set used in the paper: [Download Link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/ERdVPaeZXgBNo0rluxa9qBwBSufzDo0y1Gy2bRRPNYNOPQ?e=aEtKPU). <br>
 If you want to get evaluation images in original high resolution with source information, please download data here: [Download Link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/ERZUW4-GmPtNm3C2OacU_Y8BAVrMWah3cW5kJwvkvbbGKw?e=ZcnqgD) (2.2GB).
 
+- **Segmentation maps:**
+Please refer to [Data Segmentation Processing]() for data processing details. <br>
+You can also download manual labelled testing and evaluation segmentation maps: [TBD]().
+
 ## Citation
 If you find our work or data useful in your research, please consider citing: 
 ```bibtex
@@ -40,3 +83,5 @@ If you find our work or data useful in your research, please consider citing:
   organization={IEEE}
 }
 ```
+## Contacts
+Github issues are welcomed. You can also drop an email to yingshu2008[AT]gmail[DOT]com.
