@@ -50,8 +50,11 @@ TBD
 ```
 
 ### Data Segmentation Processing
+Segmentation map contains only two labels, white color for foreground, black color for background (i.e., sky).
+
 #### Manual labeling
-You can manually label sky as background, remaining as foreground.
+You can manually label sky as background, remaining as foreground. <br>
+At testing, manual labeling for input source image is recommended for better blended results.
 
 #### Automatic labeling
 We used pretrained model (`ResNet50dilated + PPM_deepsup`) to label sky background for training and evaluation data as described in the paper.
@@ -77,7 +80,7 @@ A request form is required to be filled for training data access.
 - **Evaluation set:**
 The evaluation set contains 1,003 images in four time styles. <br>
 Evaluation set used in the paper: [Download Link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/ERdVPaeZXgBNo0rluxa9qBwBSufzDo0y1Gy2bRRPNYNOPQ?e=aEtKPU). <br>
-If you want to get evaluation images in original high resolution with source information, please download data here: [Download Link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/ERZUW4-GmPtNm3C2OacU_Y8BAVrMWah3cW5kJwvkvbbGKw?e=ZcnqgD) (2.2GB).
+If you want to get evaluation images in original high resolution with source information, please download data here: [Download Link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/ERZUW4-GmPtNm3C2OacU_Y8BAVrMWah3cW5kJwvkvbbGKw?e=ZcnqgD) (2.2GB). Please check image original sources for other usages (e.g., commercial use).
 
 - **Segmentation maps:**
 Please refer to [Data Segmentation Processing](#data-segmentation-processing) for data processing details. <br>
