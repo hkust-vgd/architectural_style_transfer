@@ -19,35 +19,16 @@ Architectural photography is a genre of photography that focuses on capturing a 
 
 ### Requirements
 <!-- Tested with Python 3.6 or above + Pytorch 1.6 + GTX 1080 Ti with 11GB memory (CUDA 10.1). <br> -->
-Tested with Python 3.6 or above + Pytorch 1.7 + GTX 2080 Ti with 11GB memory (CUDA 10.2) / GTX 3090 Ti with 24GB memory (CUDA 11.0). 
+Tested with:
+- Python 3.6 or above
+- [Pytorch](https://pytorch.org/) 1.7
+- GTX 2080 Ti with 11GB memory (CUDA 10.2) or GTX 3090 Ti with 24GB memory (CUDA 11.0)
 
 Others:
 - tensorboard, tensorboardX
 - pyyaml
 - pillow
 - scikit-image
-
-### Testing
-
-#### Single style transfer
-1. Download pretrained models (trained with 256x256 images): [TBD]().
-2. Prepare a daytime image and a target style image (either in any resolution).
-3. Prepare segmentation maps (white for foreground, black for background) for both images.
-4. Set up testing configurations, e.g., 512x resolution. Mutiple of $2^5$ is recommended.
-5. Run testing script:
-```
-TBD
-```
-
-#### Style interpolation
-1. Download pretrained models (trained with 256x256 images): [TBD]().
-2. Prepare a daytime image and two target style images of same class (each in any resolution).
-3. Prepare segmentation maps (white for foreground, black for background) for all images.
-4. Set up testing configurations, e.g., 512x resolution. Mutiple of $2^5$ is recommended.
-5. Run testing script:
-```
-TBD
-```
 
 ### Data Segmentation Processing
 Segmentation map contains only two labels, white color for foreground, black color for background (i.e., sky).
@@ -59,6 +40,29 @@ At testing, manual labeling for input source image is recommended for better ble
 #### Automatic labeling
 We used pretrained model (`ResNet50dilated + PPM_deepsup`) to label sky background for training and evaluation data as described in the paper.
 Please access this [repository](https://github.com/CSAILVision/semantic-segmentation-pytorch#supported-models) for details.
+
+### Testing
+
+#### Single style transfer
+1. Download pretrained models (trained with 256x256 images): [TBD]().
+2. Prepare a daytime image and a target style image (either in any resolution).
+3. Prepare segmentation maps (white for foreground, black for background) for both images.
+4. Set up testing configurations, e.g., 256x, 512x or 1024x resolution. Mutiple of $2^5$ is recommended.
+5. Run testing script:
+```
+TBD
+```
+
+#### Style interpolation
+1. Download pretrained models (trained with 256x256 images): [TBD]().
+2. Prepare a daytime image and two target style images of same class (each in any resolution).
+3. Prepare segmentation maps (white for foreground, black for background) for all images.
+4. Set up testing configurations, e.g., 256x, 512x or 1024x resolution. Mutiple of $2^5$ is recommended.
+5. Run testing script:
+```
+TBD
+```
+
 
 ### Training
 Training is tested in NVIDIA GeForce RTX 2080 Ti with 11GB memory with one single GPU under 256x256 resolution,
