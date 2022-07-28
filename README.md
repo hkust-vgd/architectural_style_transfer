@@ -2,7 +2,7 @@
 
 
 <a href="https://chenyingshu.github.io/time_of_day/"><img src="https://img.shields.io/badge/WEBSITE-Visit%20project%20page-blue?style=for-the-badge"></a>
-<!-- <a href=""><img src="https://img.shields.io/badge/arxiv-2112.00719-red?style=for-the-badge"></a> -->
+<!-- <a href="https://github.com/hkust-vgd/architectural_style_transfer"><img src="https://img.shields.io/badge/CODE-Access%20Github-red?style=for-the-badge"></a> -->
 
 [Yingshu Chen]()<sup>1</sup>,
 [Tuan-Anh Vu]()<sup>1</sup>,
@@ -16,6 +16,16 @@ Architectural photography is a genre of photography that focuses on capturing a 
 
 ## Get Started
 Source code will be released soon.
+
+### Requirements
+<!-- Tested with Python 3.6 or above + Pytorch 1.6 + GTX 1080 Ti with 11GB memory (CUDA 10.1). <br> -->
+Tested with Python 3.6 or above + Pytorch 1.7 + GTX 2080 Ti with 11GB memory (CUDA 10.2) / GTX 3090 Ti with 24GB memory (CUDA 11.0). 
+
+Others:
+- tensorboard, tensorboardX
+- pyyaml
+- pillow
+- scikit-image
 
 ### Testing
 
@@ -44,8 +54,8 @@ TBD
 You can manually label sky as background, remaining as foreground.
 
 #### Automatic labeling
-We used pretrained model (TODO) to label sky background for training and evaluation data.
-Please access official [repository](TODO) for details.
+We used pretrained model (`ResNet50dilated + PPM_deepsup`) to label sky background for training and evaluation data as described in the paper.
+Please access this [repository](https://github.com/CSAILVision/semantic-segmentation-pytorch#supported-models) for details.
 
 ### Training
 Training is tested in NVIDIA GeForce RTX 2080 Ti with 11GB memory with one single GPU under 256x256 resolution,
@@ -53,15 +63,16 @@ and in NVIDIA GeForce RTX 3090 Ti with 24GB memory with one single GPU under 512
 
 1. Download training data in [Dataset](#dataset).
 2. Select source data and target style data for training, e.g., `day` and `golden`.
-3. Configure training parameters.
+3. Configure training parameters (we trained models in cropped 256x256 of resized 286x286 images).
 4.
 
 ## Dataset
-The Time-lapse Architectural Style Transfer dataset is released for non-commercial use only.
+The Time-lapse Architectural Style Transfer dataset is released for :warning:**non-commercial**:warning: use only.
 
 - **Training set:**
 Training set will be released soon.
-A request is needed for training data access. 
+A request form is required to be filled for training data access.
+<!--Please fill out the request form training data access (7.4GB). -->
 
 - **Evaluation set:**
 The evaluation set contains 1,003 images in four time styles. <br>
@@ -69,7 +80,7 @@ Evaluation set used in the paper: [Download Link](https://hkustconnect-my.sharep
 If you want to get evaluation images in original high resolution with source information, please download data here: [Download Link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/ERZUW4-GmPtNm3C2OacU_Y8BAVrMWah3cW5kJwvkvbbGKw?e=ZcnqgD) (2.2GB).
 
 - **Segmentation maps:**
-Please refer to [Data Segmentation Processing]() for data processing details. <br>
+Please refer to [Data Segmentation Processing](#data-segmentation-processing) for data processing details. <br>
 You can also download manual labelled testing and evaluation segmentation maps: [TBD]().
 
 ## Citation
