@@ -15,7 +15,7 @@
 Architectural photography is a genre of photography that focuses on capturing a building or structure in the foreground with dramatic lighting in the background. Inspired by recent successes in image-to-image translation methods, we aim to perform style transfer for architectural photographs. However, the special composition in architectural photography poses great challenges for style transfer in this type of photographs. Existing neural style transfer methods treat the architectural images as a single entity, which would generate mismatched chrominance and destroy geometric features of the original architecture, yielding unrealistic lighting, wrong color rendition, and visual artifacts such as ghosting, appearance distortion, or color mismatching. In this paper, we specialize a neural style transfer method for architectural photography. Our method addresses the composition of the foreground and background in an architectural photograph in a two-branch neural network that separately considers the style transfer of the foreground and the background, respectively. Our method comprises a segmentation module, a learning-based image-to-image translation module, and an image blending optimization module. We trained our image-to-image translation neural network with a new dataset of unconstrained outdoor architectural photographs captured at different magic times of a day, utilizing additional semantic information for better chrominance matching and geometry preservation. Our experiments show that our method can produce photorealistic lighting and color rendition on both the foreground and background, and outperforms general image-to-image translation and arbitrary style transfer baselines quantitatively and qualitatively. 
 
 ## Get Started
-Source code will be released soon.
+:eyes: Source code will be released soon. Please stay tuned.:eyes:
 
 ### Requirements
 <!-- Tested with Python 3.6 or above + Pytorch 1.6 + GTX 1080 Ti with 11GB memory (CUDA 10.1). <br> -->
@@ -67,10 +67,15 @@ and in NVIDIA GeForce RTX 3090 Ti with 24GB memory with one single GPU under 512
 1. Download training data in [Dataset](#dataset).
 2. Select source data and target style data for training, e.g., `day` and `golden`.
 3. Configure training parameters (we trained models in cropped 256x256 of resized 286x286 images).
-4.
+4. Run training script:
+```
+TBD
+```
 
 ## Dataset
 The Time-lapse Architectural Style Transfer dataset is released for :warning:**non-commercial**:warning: use only.
+
+The dataset is mannually classified into four classes of time-of-day styles: `day`,`golden`,`blue`, `night`.
 
 - **Training set:**
 Training set will be released soon.
