@@ -83,12 +83,11 @@ The dataset is mannually classified into four classes of time-of-day styles: `da
 
 - **Training set:**
 Training set will be released soon.
-A request form is required to be filled for training data access.
-<!--Please fill out the request form training data access (7.4GB). -->
+A [request form](https://forms.gle/wUrXgdWAEki73B9X9) is required to be filled for training data access (7.4GB).
 
 - **Evaluation set:**
 The evaluation set contains 1,003 images in four time styles. <br>
-Evaluation set used in the paper: [Download Link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/ERdVPaeZXgBNo0rluxa9qBwBSufzDo0y1Gy2bRRPNYNOPQ?e=aEtKPU). <br>
+Evaluation set used in the paper: [Download Link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/ERdVPaeZXgBNo0rluxa9qBwBSufzDo0y1Gy2bRRPNYNOPQ?e=aEtKPU) (550MB). <br>
 If you want to get evaluation images in original high resolution with source information, please download data here: [Download Link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/ERZUW4-GmPtNm3C2OacU_Y8BAVrMWah3cW5kJwvkvbbGKw?e=ZcnqgD) (2.2GB). Please check image original sources for other usages (e.g., commercial use).
 
 - **Segmentation maps:**
