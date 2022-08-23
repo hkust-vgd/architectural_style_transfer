@@ -27,8 +27,8 @@ Tested with:
 Others:
 - Tensorboard, TensorboardX
 - Pyyaml
-- pillow
-- scikit-image
+- Pillow
+- Scikit-image
 
 ### Data Segmentation Processing
 Segmentation map contains only two labels, white color for foreground, black color for background (i.e., sky).
