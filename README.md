@@ -25,8 +25,8 @@ Tested with:
 - GTX 2080 Ti with 11GB memory (CUDA 10.2) or GTX 3090 Ti with 24GB memory (CUDA 11.0)
 
 Others:
-- tensorboard, tensorboardX
-- pyyaml
+- Tensorboard, TensorboardX
+- Pyyaml
 - pillow
 - scikit-image
 
