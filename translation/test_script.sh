@@ -1,0 +1,11 @@
+CUDA_VISIBLE_DEVICES=1 python test.py \
+--test_root inputs/images \
+--mask_root inputs/masks \
+-a day \
+-b golden \
+--output_path results \
+--config_fg checkpoints/config_day2golden_fg.yaml \
+--config_bg checkpoints/config_day2golden_bg.yaml \
+--checkpoint_fg checkpoints/gen_day2golden_fg.pt \
+--checkpoint_bg checkpoints/gen_day2golden_bg.pt \
+--opt
