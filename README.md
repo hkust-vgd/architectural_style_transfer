@@ -25,10 +25,10 @@ Tested with:
 - GTX 2080 Ti with 11GB memory (CUDA 10.2) or GTX 3090 Ti with 24GB memory (CUDA 11.0)
 
 Others:
-- tensorboard, tensorboardX
-- pyyaml
-- pillow
-- scikit-image
+- Tensorboard, TensorboardX
+- Pyyaml
+- Pillow
+- Scikit-image
 
 ### Data Segmentation Processing
 Segmentation map contains only two labels, white color for foreground, black color for background (i.e., sky).
