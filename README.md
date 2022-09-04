@@ -100,10 +100,10 @@ and in NVIDIA GeForce RTX 3090 Ti with 24GB memory with one single GPU under 512
 3. Preprocess data with foreground and background segmentation (assume you finish labeling, see details in [Data Segmentation Processing](#data-segmentation-processing)):
 ```
 python mask_images.py \
---img_dir inputs/images/CLASS_NAME \
---mask_dir inputs/masks/CLASS_NAME \
+--img_dir training_samples/CLASS_NAME \
+--mask_dir training_samples/masks/CLASS_NAME \
 --class_name CLASS_NAME \
---output_dir inputs/images \
+--output_dir training_samples \
 --kernel_size 0
 ```
 3. Configure training parameters (we trained models in cropped 256x256 of resized 286x286 images) and save configuration file as `translation/configs/XXXX.yaml`.

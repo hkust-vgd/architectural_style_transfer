@@ -60,6 +60,6 @@ num_workers: 8                              # number of data loading threads
 new_size: 286                               # first resize the shortest image side to this size
 crop_image_height: 256                      # random crop image of this height
 crop_image_width: 256                       # random crop image of this width
-data_root: ./training_samples/FG            # dataset folder location, containing two-domain classes subfolders (ex. day, golden)
+data_root: ./training_samples/images/FG     # dataset folder location, containing two-domain classes subfolders (ex. day, golden)
 class_a: day                                # name of source domain, must be same name of data folder under data root directory
 class_b: golden                             # name of target domain, must be same name of data folder under data root directory
