@@ -36,8 +36,8 @@ Others:
 git clone https://github.com/hkust-vgd/architectural_style_transfer.git
 cd translation
 ```
-2. Download [pretrained models TBD](TBD) (trained with 256x256 images), and put them under folder `checkpoints`.
-3. Run translation testing script:
+2. Download [pretrained models](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/EfrezLEVWgZCtqCbAD_2d9YBAtz722sxbMfxXXSJmPK2tA?e=PKa7Kx) (trained with 256x256 images), and put them under folder `translation/checkpoints`.
+3. Run testing script:
 ```
 bash test_script.sh
 ```
@@ -55,26 +55,41 @@ Please access this [repository](https://github.com/CSAILVision/semantic-segmenta
 
 ### Testing
 
-#### Single style transfer
-1. Download pretrained models (trained with 256x256 images): [TBD]().
-2. Prepare a daytime image and a target style image (either in any resolution).
-3. Prepare segmentation maps (white for foreground, black for background) for both images.
-4. Set up testing configurations, e.g., 256x, 512x or 1024x resolution. Mutiple of $2^5$ is recommended.
-5. Run testing script:
+#### Style transfer
+1. Download and put [pretrained models](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/EfrezLEVWgZCtqCbAD_2d9YBAtz722sxbMfxXXSJmPK2tA?e=PKa7Kx) (trained with 256x256 images) in `translation/checkpoints`.
+2. Prepare a set of daytime images and a set of target style image in same domain (e.g., golden style), and put them in `TEST_ROOT/day` and `TEST_ROOT/TARGET_CLASS`.
+3. Prepare segmentation maps (white for foreground, black for background) for all images, and put them in `MASK_ROOT/day` and `MASK_ROOT/TARGET_CLASS`.
+4. Decide inference image size, e.g., NEW_SIZE = 256x, 512x or 1024x resolution. Multiple of $2^5$ is recommended.
+5. Run testing script (see *test_script.sh* as an example):
 ```
-TBD
+CUDA_VISIBLE_DEVICES=1 python test.py \
+--test_root TEST_ROOT_DIR \
+--mask_root MASK_ROOT_DIR \
+-a day \
+-b TARGET_CLASS \
+--output_path results \
+--config_fg checkpoints/config_day2golden_fg.yaml \
+--config_bg checkpoints/config_day2golden_bg.yaml \
+--checkpoint_fg checkpoints/gen_day2golden_fg.pt \
+--checkpoint_bg checkpoints/gen_day2golden_bg.pt \
+--new_size NEW_SIZE \
+--opt
+```
+You can view results in html by running:
+```
+python gen_html.py -i ./results 
 ```
 
+<!--
 #### Style interpolation
-1. Download pretrained models (trained with 256x256 images): [TBD]().
+1. Download [pretrained models](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/EfrezLEVWgZCtqCbAD_2d9YBAtz722sxbMfxXXSJmPK2tA?e=PKa7Kx) (trained with 256x256 images).
 2. Prepare a daytime image and two target style images of same class (each in any resolution).
-3. Prepare segmentation maps (white for foreground, black for background) for all images.
-4. Set up testing configurations, e.g., 256x, 512x or 1024x resolution. Mutiple of $2^5$ is recommended.
-5. Run testing script:
+3. Prepare segmentation maps (white for foreground, black for background) for all images4
+4. Run testing script:
 ```
 TBD
 ```
-
+-->
 
 ### Training
 Training is tested in NVIDIA GeForce RTX 2080 Ti with 11GB memory with one single GPU under 256x256 resolution,
@@ -82,16 +97,38 @@ and in NVIDIA GeForce RTX 3090 Ti with 24GB memory with one single GPU under 512
 
 1. Download training data in [Dataset](#dataset).
 2. Select source data and target style data for training, e.g., `day` and `golden`.
-3. Configure training parameters (we trained models in cropped 256x256 of resized 286x286 images).
-4. Run training script:
+3. Preprocess data with foreground and background segmentation (assume you finish labeling, see details in [Data Segmentation Processing](#data-segmentation-processing)):
 ```
-TBD
+python mask_images.py \
+--img_dir inputs/images/CLASS_NAME \
+--mask_dir inputs/masks/CLASS_NAME \
+--class_name CLASS_NAME \
+--output_dir inputs/images \
+--kernel_size 0
+```
+3. Configure training parameters (we trained models in cropped 256x256 of resized 286x286 images) and save configuration file as `translation/configs/XXXX.yaml`.
+4. Run training script, for example:
+```
+CUDA_VISIBLE_DEVICES=0 python train.py \
+--config configs/day2golden_fg.yaml  \
+--save_name day2golden_fg
+```
+
+## Blending Optimization
+You can run blending optimization solely after image translation based on translated results:
+```
+cd optimization
+python blend_opt.py \
+--blended_dir ../translation/results/ \
+--src_dir ../translation/inputs/images/day/ \
+--mask_dir ../translation/inputs/masks/day \
+--origin_res
 ```
 
 ## Dataset
 The Time-lapse Architectural Style Transfer dataset is released for :warning:**non-commercial**:warning: use only.
 
-The dataset is mannually classified into four classes of time-of-day styles: `day`,`golden`,`blue`, `night`.
+The dataset is manually classified into four classes of time-of-day styles: `day`,`golden`,`blue`, `night`.
 
 - **Training set:**
 Training set will be released soon.
@@ -104,7 +141,7 @@ If you want to get evaluation images in original high resolution with source inf
 
 - **Segmentation maps:**
 Please refer to [Data Segmentation Processing](#data-segmentation-processing) for data processing details. <br>
-You can also download manual labelled testing and evaluation segmentation maps: [TBD]().
+<!--You can also download manual labelled testing and evaluation segmentation maps: [TBD]().-->
 
 ## Citation
 If you find our work or data useful in your research, please consider citing: 
