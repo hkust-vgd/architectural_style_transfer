@@ -21,29 +21,33 @@ Architectural photography is a genre of photography that focuses on capturing a 
 <!-- Tested with Python 3.6 or above + Pytorch 1.6 + GTX 1080 Ti with 11GB memory (CUDA 10.1). <br> -->
 Tested with:
 - Python 3.6 or above
-- [Pytorch](https://pytorch.org/) 1.7
+- [Pytorch](https://pytorch.org/) 1.7 or above
 - GTX 2080 Ti with 11GB memory (CUDA 10.2) or GTX 3090 Ti with 24GB memory (CUDA 11.0)
 
 Others:
-- Tensorboard, TensorboardX
-- Pyyaml
-- Pillow
-- Scikit-image
+- tensorboard, tensorboardX
+- pyyaml
+- pillow
+- scikit-image
+- opencv-python
 
 ### Quick Start 
 1. Clone github repository:
 ```
 git clone https://github.com/hkust-vgd/architectural_style_transfer.git
-cd translation
+cd architectural_style_transfer/translation
 ```
-2. Download [pretrained models](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/EfrezLEVWgZCtqCbAD_2d9YBAtz722sxbMfxXXSJmPK2tA?e=PKa7Kx) (trained with 256x256 images), and put them under folder `translation/checkpoints`.
+2. Download [pretrained models](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/EfrezLEVWgZCtqCbAD_2d9YBAtz722sxbMfxXXSJmPK2tA?download=1) (trained with 256x256 images), and put them under folder `translation/checkpoints`:
+```
+bash checkpoints/download_models.sh
+```
 3. Run testing script:
 ```
 bash test_script.sh
 ```
 
 ### Data Segmentation Processing
-Segmentation map contains only two labels, white color for foreground, black color for background (i.e., sky).
+Segmentation map contains only two labels, white color for foreground, black color for background (i.e., sky). See samples in `translation/inputs/masks` and `translation/training_samples/masks`.
 
 #### Manual labeling
 You can manually label sky as background, remaining as foreground. <br>
@@ -56,7 +60,7 @@ Please access this [repository](https://github.com/CSAILVision/semantic-segmenta
 ### Testing
 
 #### Style transfer
-1. Download and put [pretrained models](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/EfrezLEVWgZCtqCbAD_2d9YBAtz722sxbMfxXXSJmPK2tA?e=PKa7Kx) (trained with 256x256 images) in `translation/checkpoints`.
+1. Download and put [pretrained models](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/EfrezLEVWgZCtqCbAD_2d9YBAtz722sxbMfxXXSJmPK2tA?download=1) (trained with 256x256 images) in `translation/checkpoints`.
 2. Prepare a set of daytime images and a set of target style images in same domain (e.g., golden style), and put them in `TEST_ROOT/day` and `TEST_ROOT/TARGET_CLASS`.
 3. Prepare segmentation maps (white for foreground, black for background) for all images, and put them in `MASK_ROOT/day` and `MASK_ROOT/TARGET_CLASS`.
 4. Decide inference image size, e.g., NEW_SIZE = 256x, 512x or 1024x resolution. Multiple of $2^5$ is recommended.
@@ -82,7 +86,7 @@ python gen_html.py -i ./results
 
 <!--
 #### Style interpolation
-1. Download [pretrained models](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/EfrezLEVWgZCtqCbAD_2d9YBAtz722sxbMfxXXSJmPK2tA?e=PKa7Kx) (trained with 256x256 images).
+1. Download [pretrained models](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/EfrezLEVWgZCtqCbAD_2d9YBAtz722sxbMfxXXSJmPK2tA?download=1) (trained with 256x256 images).
 2. Prepare a daytime image and two target style images of same class (each in any resolution).
 3. Prepare segmentation maps (white for foreground, black for background) for all images.
 4. Run testing script:
@@ -168,3 +172,6 @@ This work is licensed under a
 [cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
 [cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
 [cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
+
+# Acknowledgements
+The code borrows from [MUNIT](https://github.com/NVlabs/MUNIT), [DSMAP](https://github.com/acht7111020/DSMAP), and [GP-GAN](https://github.com/wuhuikai/GP-GAN).

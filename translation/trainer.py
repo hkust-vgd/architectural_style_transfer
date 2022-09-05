@@ -108,14 +108,6 @@ class DOT_Trainer(nn.Module):
         # condense into one tensor and avg
         return torch.mean(grad_diff_x ** alpha + grad_diff_y ** alpha)
 
-    # Get "probability" in Eq.(3)
-    def get_prob(self, input_L):
-        '''
-            Normalize values in [-1,1] back to [0,1]
-
-        '''
-        return (input_L + 1) / 2.0
-
     # Luminance KL Loss
     def compute_lum_kl_loss(self, input_L, target_L):
         '''
@@ -128,10 +120,11 @@ class DOT_Trainer(nn.Module):
         input_L = input_L.reshape(num_batch, -1)
         target_L = target_L.reshape(num_batch, -1)
 
-        ## input_x = F.log(get_prob(input_L))
-        ## target_y = get_prob(target_L)
-        # This is diffrent from description in Paper Eq.(3)
-        # It is found softmax operation get similar performance
+        # Get "probability" in Eq.(3)
+        # This is a bit diffrent from description in Paper Eq.(3)
+        # We do not do normalization but exponential normalization
+        # It is found direct softmax operation can already get good performance
+        # Softmax operation makes sum of probability 1 for each bach
         input_x = F.log_softmax(input_L, 1)
         target_y = F.softmax(target_L, 1)         
 

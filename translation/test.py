@@ -187,7 +187,7 @@ if __name__ == '__main__':
         assert (len(content_paths) == len(mask_paths)) and (len(style_paths) == len(style_mask_paths))
 
         mask_images(content_paths, mask_paths, opts.test_root, class_src, kernel_size=opts.dilate_kernel)
-        mask_images(style_paths, style_mask_paths, opts.test_root, class_tgt, kernel_size=opts.dilate_kernel)
+        mask_images(style_paths, style_mask_paths, opts.test_root, class_tgt, kernel_size=0)
 
     new_size = opts.new_size
     loader_content_fg, loader_style_fg = get_test_data_loaders(os.path.join(opts.test_root, 'FG'), opts.a2b, opts.class_a, opts.class_b, new_size=new_size)

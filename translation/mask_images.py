@@ -3,6 +3,20 @@ Copyright (C) 2022 HKUST VGD Group
 Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
 
 # This script is to preprocess data into foreground and background images for data training or testing.
+Usage:
+
+python mask_images.py \
+--img_dir training_samples/CLASS_NAME \
+--mask_dir training_samples/masks/CLASS_NAME \
+--class_name CLASS_NAME \
+--output_dir training_samples \
+--kernel_size 0
+
+python mask_images.py \
+--img_dir inputs/images/CLASS_NAME \
+--mask_dir inputs/masks/CLASS_NAME \
+--class_name CLASS_NAME \
+--output_dir inputs/images 
 """
 
 import argparse
@@ -25,9 +39,9 @@ def get_mask_alpha(mask_path, size, dilate_kernel=0, inverse=False):
         - inverse: get inversed mask
     '''
     mask_img = imread(mask_path, as_gray=True) # [H, W], value range[0,255]
-    mask_img = resize(mask_img, size).astype(bool) #value range[0,1]
+    mask_img = resize(mask_img, size) #value range[0,1]
     if inverse:
-        mask_img = ~mask_img
+        mask_img = 1. - mask_img
     if dilate_kernel > 0: 
         # mask_img = binary_dilation(mask_img.astype(bool), disk(dilate_kernel)) #Quicker
         mask_img = dilation(mask_img, disk(dilate_kernel))
@@ -49,6 +63,7 @@ def mask_image(img_path, mask_path, kernel_size=3):
 
     return img_fg, img_bg
 
+# Testing use
 def mask_images(img_paths, mask_paths, output_root, class_name, kernel_size=3):
     output_fg_root = os.path.join(output_root, 'FG', class_name)
     output_bg_root = os.path.join(output_root, 'BG', class_name)
@@ -62,6 +77,28 @@ def mask_images(img_paths, mask_paths, output_root, class_name, kernel_size=3):
         filename = os.path.basename(img_path)
         imsave(os.path.join(output_fg_root, filename), img_fg)
         imsave(os.path.join(output_bg_root, filename), img_bg)
+    print('Preprocessed %d images'%len(img_paths))
+
+# Training use
+# Each class folder contains 'train' and 'test' subfolders
+def mask_train_images(img_paths, mask_paths, output_root, class_name, kernel_size=3):
+    output_fg_root = os.path.join(output_root, 'FG', class_name)
+    output_bg_root = os.path.join(output_root, 'BG', class_name)
+    if not os.path.exists(os.path.join(output_fg_root, 'train')):
+        os.makedirs(os.path.join(output_fg_root, 'train'))
+    if not os.path.exists(os.path.join(output_fg_root, 'test')):
+        os.makedirs(os.path.join(output_fg_root, 'test'))
+    if not os.path.exists(os.path.join(output_bg_root, 'train')):
+        os.makedirs(os.path.join(output_bg_root, 'train'))
+    if not os.path.exists(os.path.join(output_bg_root, 'test')):
+        os.makedirs(os.path.join(output_bg_root, 'test'))
+
+    for img_path, mask_path in zip(img_paths, mask_paths):
+        img_fg, img_bg = mask_image(img_path, mask_path, kernel_size=kernel_size)
+        set_name = os.path.basename(os.path.dirname(img_path))
+        filename = os.path.basename(img_path)
+        imsave(os.path.join(output_fg_root, set_name, filename), img_fg)
+        imsave(os.path.join(output_bg_root, set_name, filename), img_bg)
     print('Preprocessed %d images'%len(img_paths))
 
 
@@ -79,8 +116,8 @@ if __name__ == '__main__':
 
     img_paths = sorted(make_dataset(opts.img_dir))
     mask_paths = sorted(make_dataset(opts.mask_dir))
-    assert len(img_paths) == len(mask_list)
+    assert len(img_paths) == len(mask_paths)
 
-    mask_images(img_paths, mask_paths, opts.output_dir, opts.class_name, kernel_size=opts.kernel_size)
+    mask_train_images(img_paths, mask_paths, opts.output_dir, opts.class_name, kernel_size=opts.kernel_size)
 
     print("--- Time elapsed: %.4f sec ---" %((time.time() - start_time)))
