@@ -29,7 +29,6 @@ Others:
 - pyyaml
 - pillow
 - scikit-image
-- opencv-python
 
 ### Quick Start 
 1. Clone github repository:
@@ -140,8 +139,8 @@ A [request form](https://forms.gle/wUrXgdWAEki73B9X9) is required to be filled f
 
 - **Evaluation set:**
 The evaluation set contains 1,003 images in four time styles. <br>
-Evaluation set used in the paper: [Download Link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/ERdVPaeZXgBNo0rluxa9qBwBSufzDo0y1Gy2bRRPNYNOPQ?e=aEtKPU) (550MB). <br>
-If you want to get evaluation images in original high resolution with source information, please download data here: [Download Link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/ERZUW4-GmPtNm3C2OacU_Y8BAVrMWah3cW5kJwvkvbbGKw?e=ZcnqgD) (2.2GB). Please check image original sources for other usages (e.g., commercial use).
+Evaluation set used in the paper: [Download Link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/ERdVPaeZXgBNo0rluxa9qBwBSufzDo0y1Gy2bRRPNYNOPQ?download=1) (550MB). <br>
+If you want to get evaluation images in original high resolution with source information, please download data here: [Download Link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/ERZUW4-GmPtNm3C2OacU_Y8BAVrMWah3cW5kJwvkvbbGKw?download=1) (2.2GB). Please check image original sources for other usages (e.g., commercial use).
 
 - **Segmentation maps:**
 Please refer to [Data Segmentation Processing](#data-segmentation-processing) for data processing details. <br>
