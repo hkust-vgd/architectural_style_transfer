@@ -42,10 +42,16 @@ MASK_ROOT
 
 Option 2: (without preprocessed data)
 TEST_ROOT
-    - class_a
-        - XXXX.jpg
-    - class_b
-        - XXXX.jpg
+    - FG
+        - class_a
+            - XXXX.jpg
+        - class_b
+            - XXXX.jpg
+    - BG
+        - class_a
+            - XXXX.jpg
+        - class_b  
+            - XXXX.jpg
 MASK_ROOT
     - class_a
         - XXXX.jpg

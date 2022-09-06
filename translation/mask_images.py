@@ -109,8 +109,9 @@ if __name__ == '__main__':
     parser.add_argument('--img_dir', '-i', type=str, required=True, help='Path to the images')
     parser.add_argument('--mask_dir', '-m', type=str, required=True,  help="Path to mask folder")
     parser.add_argument('--class_name', '-c', type=str, required=True,  help="Class name {day, golden, blue, night}")
-    parser.add_argument('--output_dir', '-out_i', type=str, required=True, help='Path to save mask images')
+    parser.add_argument('--output_dir', '-out_dir', type=str, required=True, help='Path to save mask images')
     parser.add_argument('--kernel_size', '-size', type=int, default=3, help="Optional. Kernel size for dilation. Necessary for better blended results.") 
+    parser.add_argument('--test',  action='store_true', help='Optional. Testing image use, not train or test folder.')
     opts = parser.parse_args()
 
 
@@ -118,6 +119,9 @@ if __name__ == '__main__':
     mask_paths = sorted(make_dataset(opts.mask_dir))
     assert len(img_paths) == len(mask_paths)
 
-    mask_train_images(img_paths, mask_paths, opts.output_dir, opts.class_name, kernel_size=opts.kernel_size)
+    if opts.test:
+        mask_images(img_paths, mask_paths, opts.output_dir, opts.class_name, kernel_size=opts.kernel_size)
+    else:
+        mask_train_images(img_paths, mask_paths, opts.output_dir, opts.class_name, kernel_size=opts.kernel_size)
 
     print("--- Time elapsed: %.4f sec ---" %((time.time() - start_time)))
