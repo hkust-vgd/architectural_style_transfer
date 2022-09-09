@@ -11,14 +11,20 @@
 [Sai-Kit Yeung](https://www.saikit.org/)<sup>1</sup> <br>
 <sup>1</sup>The Hong Kong University of Science and Technology, <sup>2</sup> VinAI Research
 
+<div>
+  <img src="https://chenyingshu.github.io/time_of_day/img/teaser.png" width=49% height=49%>
+  <img src="https://chenyingshu.github.io/time_of_day/img/teaser2.png" width=49% height=49%>
+</div>
+
 > **Abstract:** 
 Architectural photography is a genre of photography that focuses on capturing a building or structure in the foreground with dramatic lighting in the background. Inspired by recent successes in image-to-image translation methods, we aim to perform style transfer for architectural photographs. However, the special composition in architectural photography poses great challenges for style transfer in this type of photographs. Existing neural style transfer methods treat the architectural images as a single entity, which would generate mismatched chrominance and destroy geometric features of the original architecture, yielding unrealistic lighting, wrong color rendition, and visual artifacts such as ghosting, appearance distortion, or color mismatching. In this paper, we specialize a neural style transfer method for architectural photography. Our method addresses the composition of the foreground and background in an architectural photograph in a two-branch neural network that separately considers the style transfer of the foreground and the background, respectively. Our method comprises a segmentation module, a learning-based image-to-image translation module, and an image blending optimization module. We trained our image-to-image translation neural network with a new dataset of unconstrained outdoor architectural photographs captured at different magic times of a day, utilizing additional semantic information for better chrominance matching and geometry preservation. Our experiments show that our method can produce photorealistic lighting and color rendition on both the foreground and background, and outperforms general image-to-image translation and arbitrary style transfer baselines quantitatively and qualitatively. 
 
+ 
+
+
 ## Get Started
-<!--:eyes: Source code will be released soon. Please stay tuned.:eyes:-->
 
 ### Requirements
-<!-- Tested with Python 3.6 or above + Pytorch 1.6 + GTX 1080 Ti with 11GB memory (CUDA 10.1). <br> -->
 Tested with:
 - Python 3.6 or above
 - [Pytorch](https://pytorch.org/) 1.7 or above
