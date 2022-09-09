@@ -4,8 +4,8 @@
 <a href="https://chenyingshu.github.io/time_of_day/"><img src="https://img.shields.io/badge/WEBSITE-Visit%20project%20page-blue?style=for-the-badge"></a>
 <!-- <a href="https://github.com/hkust-vgd/architectural_style_transfer"><img src="https://img.shields.io/badge/CODE-Access%20Github-red?style=for-the-badge"></a> -->
 
-[Yingshu Chen]()<sup>1</sup>,
-[Tuan-Anh Vu]()<sup>1</sup>,
+[Yingshu Chen](http://yschen.site/)<sup>1</sup>,
+[Tuan-Anh Vu](https://tuananh1007.github.io/)<sup>1</sup>,
 [Ka-Chun Shum]()<sup>1</sup>,
 [Binh-Son Hua](https://sonhua.github.io/)<sup>2</sup>,
 [Sai-Kit Yeung](https://www.saikit.org/)<sup>1</sup> <br>
@@ -149,8 +149,8 @@ Evaluation set used in the paper: [Download Link](https://hkustconnect-my.sharep
 If you want to get evaluation images in original high resolution with source information, please download data here: [Download Link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/ERZUW4-GmPtNm3C2OacU_Y8BAVrMWah3cW5kJwvkvbbGKw?download=1) (2.2GB). Please check image original sources for other usages (e.g., commercial use).
 
 - **Segmentation maps:**
-Please refer to [Data Segmentation Processing](#data-segmentation-processing) for data processing details. <br>
-<!--You can also download manual labelled testing and evaluation segmentation maps: [TBD]().-->
+Please refer to [Data Segmentation Processing](#data-segmentation-processing) for data processing details. For inference, manually labeling is recommended. <br>
+You can download labeled training and evaluation segmentation maps used in the paper: [Training maps download link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/ER6olYi4kkdAnzFZYcNSdwIB5ml7v_bEmMst2xigu0aNtg?download=1) (224MB), [Evaluation maps download link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/EZWaSNkSDUtDmrwJ3vSL6jUBi10eyQ52cxwFhPLu27HwmA?download=1) (11MB).
 
 ## Citation
 If you find our work or data useful in your research, please consider citing: 
