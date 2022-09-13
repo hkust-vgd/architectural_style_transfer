@@ -59,7 +59,7 @@ You can manually label sky as background, remaining as foreground. <br>
 At testing, manual labeling for input source image is recommended for better blended results.
 
 #### Automatic labeling
-We used pretrained model (`ResNet50dilated + PPM_deepsup`) to label sky background for training and evaluation data as described in the paper.
+We used [pretrained model](http://sceneparsing.csail.mit.edu/model/pytorch/ade20k-resnet50dilated-ppm_deepsup/) (`ResNet50dilated + PPM_deepsup`) to label sky background for training and evaluation data as described in the paper.
 Please access this [repository](https://github.com/CSAILVision/semantic-segmentation-pytorch#supported-models) for details.
 
 ### Testing
