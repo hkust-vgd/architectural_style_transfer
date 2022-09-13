@@ -66,22 +66,22 @@ Please access this [repository](https://github.com/CSAILVision/semantic-segmenta
 
 #### Style transfer
 1. Download and put [pretrained models](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/EfrezLEVWgZCtqCbAD_2d9YBAtz722sxbMfxXXSJmPK2tA?download=1) (trained with 256x256 images) in `translation/checkpoints`.
-2. Prepare a set of daytime images and a set of target style images in same domain (e.g., golden style), and put them in `TEST_ROOT/day` and `TEST_ROOT/TARGET_CLASS`.
-3. Prepare segmentation maps (white for foreground, black for background) for all images, and put them in `MASK_ROOT/day` and `MASK_ROOT/TARGET_CLASS`.
-4. Decide inference image size, e.g., NEW_SIZE = 256x, 512x or 1024x resolution. Multiple of $2^5$ is recommended.
+2. Prepare a set of daytime images and a set of target style images in same domain (e.g., golden style), and put them in `<TEST_ROOT>/day` and `<TEST_ROOT>/<TARGET_CLASS>`.
+3. Prepare segmentation maps (white for foreground, black for background) for all images, and put them in `<MASK_ROOT>/day` and `<MASK_ROOT>/<TARGET_CLASS>`.
+4. Decide inference image size, e.g., <NEW_SIZE> = 256x, 512x or 1024x resolution. Multiple of $2^5$ is recommended.
 5. Run testing script (see *test_script.sh* as an example):
 ```
 CUDA_VISIBLE_DEVICES=1 python test.py \
---test_root TEST_ROOT_DIR \
---mask_root MASK_ROOT_DIR \
+--test_root <TEST_ROOT_DIR> \
+--mask_root <MASK_ROOT_DIR> \
 -a day \
--b TARGET_CLASS \
+-b <TARGET_CLASS> \
 --output_path results \
 --config_fg checkpoints/config_day2golden_fg.yaml \
 --config_bg checkpoints/config_day2golden_bg.yaml \
 --checkpoint_fg checkpoints/gen_day2golden_fg.pt \
 --checkpoint_bg checkpoints/gen_day2golden_bg.pt \
---new_size NEW_SIZE \
+--new_size <NEW_SIZE> \
 --opt
 ```
 You can view results in html by running:
@@ -109,9 +109,9 @@ and in NVIDIA GeForce RTX 3090 Ti with 24GB memory with one single GPU under 512
 3. Preprocess data with foreground and background segmentation (assume you finish labeling, see details in [Data Segmentation Processing](#data-segmentation-processing)):
 ```
 python mask_images.py \
---img_dir training_samples/CLASS_NAME \
---mask_dir training_samples/masks/CLASS_NAME \
---class_name CLASS_NAME \
+--img_dir training_samples/<CLASS_NAME> \
+--mask_dir training_samples/masks/<CLASS_NAME> \
+--class_name <CLASS_NAME> \
 --output_dir training_samples \
 --kernel_size 0
 ```
