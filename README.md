@@ -2,6 +2,7 @@
 
 
 <a href="https://chenyingshu.github.io/time_of_day/"><img src="https://img.shields.io/badge/WEBSITE-Visit%20project%20page-blue?style=for-the-badge"></a>
+<a href="https://arxiv.org/abs/2209.05800"><img src="https://img.shields.io/badge/arxiv-2209.05800-red?style=for-the-badge"></a>
 <!-- <a href="https://github.com/hkust-vgd/architectural_style_transfer"><img src="https://img.shields.io/badge/CODE-Access%20Github-red?style=for-the-badge"></a> -->
 
 [Yingshu Chen](http://yschen.site/)<sup>1</sup>,
