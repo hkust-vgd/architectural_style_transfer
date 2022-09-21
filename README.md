@@ -43,7 +43,7 @@ Others:
 git clone https://github.com/hkust-vgd/architectural_style_transfer.git
 cd architectural_style_transfer/translation
 ```
-2. Download [pretrained models](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/EfrezLEVWgZCtqCbAD_2d9YBAtz722sxbMfxXXSJmPK2tA?download=1) (trained with 256x256 images), and put them under folder `translation/checkpoints`:
+2. Download [pretrained models](https://hkust-vgd.ust.hk/architectural_style_transfer/models/checkpoints.zip) (trained with 256x256 images), and put them under folder `translation/checkpoints`:
 ```
 bash checkpoints/download_models.sh
 ```
@@ -66,7 +66,7 @@ Please access this [repository](https://github.com/CSAILVision/semantic-segmenta
 ### Testing
 
 #### Style transfer
-1. Download and put [pretrained models](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/EfrezLEVWgZCtqCbAD_2d9YBAtz722sxbMfxXXSJmPK2tA?download=1) (trained with 256x256 images) in `translation/checkpoints`.
+1. Download and put [pretrained models](https://hkust-vgd.ust.hk/architectural_style_transfer/models/checkpoints.zip) (trained with 256x256 images) in `translation/checkpoints`.
 2. Prepare a set of daytime images and a set of target style images in same domain (e.g., golden style), and put them in `<TEST_ROOT>/day` and `<TEST_ROOT>/<TARGET_CLASS>`.
 3. Prepare segmentation maps (white for foreground, black for background) for all images, and put them in `<MASK_ROOT>/day` and `<MASK_ROOT>/<TARGET_CLASS>`.
 4. Decide inference image size, e.g., <NEW_SIZE> = 256x, 512x or 1024x resolution. Multiple of $2^5$ is recommended.
@@ -92,7 +92,7 @@ python gen_html.py -i ./results
 
 <!--
 #### Style interpolation
-1. Download [pretrained models](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/EfrezLEVWgZCtqCbAD_2d9YBAtz722sxbMfxXXSJmPK2tA?download=1) (trained with 256x256 images).
+1. Download [pretrained models](https://hkust-vgd.ust.hk/architectural_style_transfer/models/checkpoints.zip) (trained with 256x256 images).
 2. Prepare a daytime image and two target style images of same class (each in any resolution).
 3. Prepare segmentation maps (white for foreground, black for background) for all images.
 4. Run testing script:
@@ -146,12 +146,12 @@ A [request form](https://forms.gle/wUrXgdWAEki73B9X9) is required to be filled f
 
 - **Evaluation set:**
 The evaluation set contains 1,003 images in four time styles. <br>
-Evaluation set used in the paper: [Download Link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/ERdVPaeZXgBNo0rluxa9qBwBSufzDo0y1Gy2bRRPNYNOPQ?download=1) (550MB). <br>
-If you want to get evaluation images in original high resolution with source information, please download data here: [Download Link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/ERZUW4-GmPtNm3C2OacU_Y8BAVrMWah3cW5kJwvkvbbGKw?download=1) (2.2GB). Please check image original sources for other usages (e.g., commercial use).
+Evaluation set used in the paper: [Download Link](https://hkust-vgd.ust.hk/architectural_style_transfer/datasets/eval_set_resized_renamed.zip) (550MB). <br>
+If you want to get evaluation images in original high resolution with source information, please download data here: [Download Link](https://hkust-vgd.ust.hk/architectural_style_transfer/datasets/eval_set_original.zip) (2.2GB). Please check image original sources for other usages (e.g., commercial use).
 
 - **Segmentation maps:**
 Please refer to [Data Segmentation Processing](#data-segmentation-processing) for data processing details. For inference, manually labeling is recommended. <br>
-You can download labeled training and evaluation segmentation maps used in the paper: [Training maps download link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/ER6olYi4kkdAnzFZYcNSdwIB5ml7v_bEmMst2xigu0aNtg?download=1) (224MB), [Evaluation maps download link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/ychengw_connect_ust_hk/EZWaSNkSDUtDmrwJ3vSL6jUBi10eyQ52cxwFhPLu27HwmA?download=1) (11MB).
+You can download labeled training and evaluation segmentation maps used in the paper: [Training maps download link](https://hkust-vgd.ust.hk/architectural_style_transfer/datasets/train_set_resized_renamed_masks.zip) (224MB), [Evaluation maps download link](https://hkust-vgd.ust.hk/architectural_style_transfer/datasets/eval_set_resized_renamed_masks.zip) (11MB).
 
 ## Citation
 If you find our work or data useful in your research, please consider citing: 
