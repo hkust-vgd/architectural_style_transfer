@@ -219,11 +219,9 @@ class DOT_Trainer(nn.Module):
 
         # geometry loss (preserve geometry for foreground only)
         self.loss_gen_geo_x_a = self.geometry_grad_criterion(x_ab, x_a, hyperparameters['geo_grad_w'])
-        # self.loss_gen_geo_x_a = self.loss_gen_geo_x_a + self.geometry_kl_criterion(x_ab, x_b, hyperparameters['geo_kl_w'])
-        self.loss_gen_geo_x_a = self.loss_gen_geo_x_a + self.geometry_kl_criterion(x_ab, x_a, hyperparameters['geo_kl_w']) # Found it works better
+        self.loss_gen_geo_x_a = self.loss_gen_geo_x_a + self.geometry_kl_criterion(x_ab, x_a, hyperparameters['geo_kl_w']) 
         self.loss_gen_geo_x_b = self.geometry_grad_criterion(x_ba, x_b, hyperparameters['geo_grad_w'])
-        # self.loss_gen_geo_x_b = self.loss_gen_geo_x_b + self.geometry_kl_criterion(x_ba, x_a, hyperparameters['geo_kl_w'])
-        self.loss_gen_geo_x_b = self.loss_gen_geo_x_b + self.geometry_kl_criterion(x_ba, x_b, hyperparameters['geo_kl_w']) # Found it works better
+        self.loss_gen_geo_x_b = self.loss_gen_geo_x_b + self.geometry_kl_criterion(x_ba, x_b, hyperparameters['geo_kl_w']) 
         
         if hyperparameters['self_geo']: # Optional. If you want a sharper reconstruction output
             self.loss_gen_geo_x_a = self.loss_gen_geo_x_a + self.geometry_grad_criterion(x_a_recon, x_a, hyperparameters['geo_grad_w'])
