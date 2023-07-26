@@ -6,7 +6,7 @@
 <a href="https://arxiv.org/abs/2209.05800"><img src="https://img.shields.io/badge/arxiv-2209.05800-red?style=for-the-badge"></a>
 <!-- <a href="https://github.com/hkust-vgd/architectural_style_transfer"><img src="https://img.shields.io/badge/CODE-Access%20Github-red?style=for-the-badge"></a> -->
 
-[Yingshu Chen](http://yschen.site/)<sup>1</sup>,
+[Yingshu Chen](https://chenyingshu.github.io/)<sup>1</sup>,
 [Tuan-Anh Vu](https://tuananh1007.github.io/)<sup>1</sup>,
 [Ka-Chun Shum]()<sup>1</sup>,
 [Binh-Son Hua](https://sonhua.github.io/)<sup>2</sup>,
