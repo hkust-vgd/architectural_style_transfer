@@ -30,7 +30,7 @@ Architectural photography is a genre of photography that focuses on capturing a 
 Tested with:
 - Python 3.6 or above
 - [Pytorch](https://pytorch.org/) 1.7 or above
-- GTX 2080 Ti with 11GB memory (CUDA 10.2) or GTX 3090 Ti with 24GB memory (CUDA 11.0)
+- GTX 2080 Ti with 11GB memory (CUDA 10.2) or GTX 3090 with 24GB memory (CUDA 11.0)
 
 Others:
 - tensorboard, tensorboardX
@@ -104,7 +104,7 @@ TBD
 
 ### Training
 Training is tested in NVIDIA GeForce RTX 2080 Ti with 11GB memory with one single GPU under 256x256 resolution,
-and in NVIDIA GeForce RTX 3090 Ti with 24GB memory with one single GPU under 512x512 resolution (batch=1).
+and in NVIDIA GeForce RTX 3090 with 24GB memory with one single GPU under 512x512 resolution (batch=1).
 
 1. Download training data in [Dataset](#dataset).
 2. Select source data and target style data for training, e.g., `day` and `golden`.
@@ -142,7 +142,6 @@ The Time-lapse Architectural Style Transfer dataset is released for :warning:**n
 The dataset is manually classified into four classes of time-of-day styles: `day`,`golden`,`blue`, `night`.
 
 - **Training set:**
-Training set will be released soon.
 A [request form](https://forms.gle/wUrXgdWAEki73B9X9) is required to be filled for training data access (7.4GB).
 
 - **Evaluation set:**
