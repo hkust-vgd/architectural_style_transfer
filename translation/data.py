@@ -94,6 +94,7 @@ class ImageFolder(data.Dataset):
                 img = img.resize((new_width, self.new_size))
             else:
                 new_height = int(height * (self.new_size/width) / self.base + 0.5) * self.base
+                img = img.resize((self.new_size, new_height)) # missed this line before, fixed bug.
 
         if self.transform is not None:
             img = self.transform(img)
